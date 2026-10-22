@@ -1,0 +1,355 @@
+<!doctype html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=refresh content=1800><title>Liquidation &amp; Wall Dashboard</title>
+<script src="https://unpkg.com/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js"></script><style>.tabs{display:flex;gap:6px;position:sticky;top:0;background:#0d1117;padding:6px 0;z-index:5;overflow-x:auto}.tabs button{background:#21262d;color:#e6edf3;border:1px solid #30363d;border-radius:6px;padding:8px 12px;font-size:15px;white-space:nowrap}.tabs button.on{background:#1f6feb}.ctl input{background:#0d1117;color:#e6edf3;border:1px solid #30363d;border-radius:6px;padding:6px}table.small td,table.small th{font-size:.82em;white-space:nowrap}tr.big td{background:#3b2e00}.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:10px}.card{border:1px solid #30363d;border-radius:8px;padding:8px}.chip{display:inline-block;border:1px solid #30363d;border-radius:12px;padding:2px 8px;margin:2px}a{color:#58a6ff}.bar{display:flex;height:26px;border-radius:6px;overflow:hidden;margin:6px 0;font-size:.85em}.lbar{background:#238636;padding:4px}.sbar{background:#da3633;flex:1;padding:4px;text-align:right}td button{background:#21262d;color:#e6edf3;border:1px solid #30363d;border-radius:4px}.lc{height:420px;width:100%}@media(max-width:600px){.lc{height:320px}}.ctl{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.ctl button,.ctl select{background:#21262d;color:#e6edf3;border:1px solid #30363d;border-radius:6px;padding:6px 10px;font-size:14px}.ctl button.on{background:#1f6feb}.ctl span{color:#8b949e;margin-left:6px}body{background:#0d1117;color:#e6edf3;font:15px system-ui,sans-serif;margin:0;padding:12px;max-width:1100px;margin:auto}h1{font-size:1.4em}h2{border-bottom:1px solid #30363d;padding-bottom:4px}img{width:100%;height:auto;border-radius:6px}figure{margin:0 0 16px}figcaption{color:#8b949e;font-size:.85em}table{border-collapse:collapse;width:100%}td,th{padding:4px 8px;border-bottom:1px solid #21262d;text-align:right}th{color:#8b949e}.tw{overflow-x:auto}.long{color:#3fb950}.short{color:#f85149}tr.long td:nth-child(2){color:#3fb950}tr.short td:nth-child(2){color:#f85149}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:600px){.two{grid-template-columns:1fr}}.meta{color:#8b949e}.soon{color:#d29922}pre{white-space:pre-wrap;font-size:.75em}</style></head><body>
+<h1>BTC Liquidations &amp; Order-Book Walls</h1><p class=meta>Last updated: <b>2026-10-22 16:30 ART (UTC-3)</b> · HL BTC OI coverage: <b>88.7%</b> (81,317 of 81,322 wallets polled) · auto-refreshes every 30 min · analysis only, not advice</p>
+<nav class=tabs><button data-tab=t_charts class=on>Charts &amp; liqs</button><button data-tab=t_stream>Wallet stream</button><button data-tab=t_whales>Whales</button></nav><div class=tab id=t_charts><section><h2>Live BTC &amp; ETH with liquidation levels</h2>
+<div class=ctl><span>TF</span><button data-tf=15m>15m</button><button data-tf=1h class=on>1h</button><button data-tf=4h>4h</button>
+<span>Liqs</span><button data-v=HL>HL</button><button data-v=Lighter>Lighter</button><button data-v=Combined class=on>Combined</button>
+<select id=ln><option>8</option><option selected>12</option><option>20</option></select></div>
+<p class=meta id=lmeta>loading liquidation levels...</p>
+<h3>BTC</h3><div class=lc id=lc_BTC></div><p class=meta id=ls_BTC>loading...</p>
+<h3>ETH</h3><div class=lc id=lc_ETH></div><p class=meta id=ls_ETH>loading...</p>
+<p class=meta>Red lines = long liquidations (below price), green = short liquidations (above price); thicker/brighter = larger $ cluster. Candles refresh every 15s from the Hyperliquid public API (Coinbase fallback).</p></section><section><h2>Hyperliquid BTC liquidation map</h2><figure><img src="img/hl_btc_liq_map.png?t=1792697184" alt="BTC liquidation map" loading="lazy"><figcaption>BTC liquidation map</figcaption></figure></section><section><h2>Top liquidation clusters</h2><p>Mark $81,467 · sorted by distance from price</p><div class=tw><table><tr><th>Price bucket</th><th>Side</th><th>Size</th><th>From mark</th></tr><tr class='long'><td>74750-75000</td><td>long</td><td>$69.9M</td><td>-8.1%</td></tr><tr class='short'><td>91500-91750</td><td>short</td><td>$59.8M</td><td>+12.5%</td></tr><tr class='long'><td>69000-69250</td><td>long</td><td>$103.1M</td><td>-15.2%</td></tr><tr class='short'><td>97500-97750</td><td>short</td><td>$88.3M</td><td>+19.8%</td></tr><tr class='long'><td>56250-56500</td><td>long</td><td>$83.5M</td><td>-30.8%</td></tr><tr class='long'><td>50750-51000</td><td>long</td><td>$111.1M</td><td>-37.5%</td></tr><tr class='long'><td>49250-49500</td><td>long</td><td>$57.0M</td><td>-39.4%</td></tr><tr class='short'><td>122250-122500</td><td>short</td><td>$68.0M</td><td>+50.2%</td></tr><tr class='short'><td>139250-139500</td><td>short</td><td>$208.0M</td><td>+71.1%</td></tr><tr class='short'><td>147750-148000</td><td>short</td><td>$216.5M</td><td>+81.5%</td></tr></table></div></section><section><h2>Order-book wall heatmaps</h2><figure><img src="img/hl_book_BTC_nsig3.png?t=1792697262" alt="BTC perp" loading="lazy"><figcaption>BTC perp</figcaption></figure><figure><img src="img/hl_book_142_nsig3.png?t=1792697344" alt="UBTC/USDC spot" loading="lazy"><figcaption>UBTC/USDC spot</figcaption></figure><figure><img src="img/hl_book_107_nsig3.png?t=1792697420" alt="HYPE/USDC spot" loading="lazy"><figcaption>HYPE/USDC spot</figcaption></figure></section><section><h2>Current walls (Hyperliquid)</h2><h3>BTC-PERP (mid 8.15e+04, 1938 snapshots)</h3><div class=two><div><b class=long>Bids</b><table><tr><th>Price</th><th>Size</th></tr><tr><td>8e+04</td><td>$102.4M</td></tr><tr><td>8.1e+04</td><td>$100.2M</td></tr><tr><td>7.8e+04</td><td>$23.1M</td></tr><tr><td>7.9e+04</td><td>$21.0M</td></tr></table></div><div><b class=short>Asks</b><table><tr><th>Price</th><th>Size</th></tr><tr><td>8.2e+04</td><td>$125.3M</td></tr><tr><td>8.3e+04</td><td>$76.3M</td></tr><tr><td>8.4e+04</td><td>$32.7M</td></tr><tr><td>8.5e+04</td><td>$24.9M</td></tr></table></div></div><h3>UBTC-USDC spot (mid 8.135e+04, 1941 snapshots)</h3><div class=two><div><b class=long>Bids</b><table><tr><th>Price</th><th>Size</th></tr><tr><td>8.13e+04</td><td>$1.4M</td></tr><tr><td>8.03e+04</td><td>$1.1M</td></tr><tr><td>8.12e+04</td><td>$0.7M</td></tr><tr><td>7.95e+04</td><td>$0.6M</td></tr><tr><td>7.98e+04</td><td>$0.3M</td></tr></table></div><div><b class=short>Asks</b><table><tr><th>Price</th><th>Size</th></tr><tr><td>8.15e+04</td><td>$1.4M</td></tr><tr><td>8.21e+04</td><td>$1.0M</td></tr><tr><td>8.14e+04</td><td>$0.6M</td></tr><tr><td>8.3e+04</td><td>$0.5M</td></tr><tr><td>8.16e+04</td><td>$0.5M</td></tr></table></div></div><h3>HYPE-USDC spot (mid 77.75, 1943 snapshots)</h3><div class=two><div><b class=long>Bids</b><table><tr><th>Price</th><th>Size</th></tr><tr><td>77.6</td><td>$0.6M</td></tr><tr><td>77.5</td><td>$0.5M</td></tr><tr><td>77.3</td><td>$0.3M</td></tr><tr><td>77.1</td><td>$0.3M</td></tr><tr><td>77</td><td>$0.2M</td></tr></table></div><div><b class=short>Asks</b><table><tr><th>Price</th><th>Size</th></tr><tr><td>77.9</td><td>$0.7M</td></tr><tr><td>78</td><td>$0.6M</td></tr><tr><td>78.3</td><td>$0.5M</td></tr><tr><td>78.1</td><td>$0.4M</td></tr><tr><td>78.6</td><td>$0.3M</td></tr></table></div></div></section><section><h2>Lighter (BTC &amp; ETH): liquidations and walls</h2><figure><img src="img/lt_book_BTC_heatmap.png?t=1792697064" alt="book BTC heatmap" loading="lazy"><figcaption>book BTC heatmap</figcaption></figure><figure><img src="img/lt_book_ETH-USDC-spot_heatmap.png?t=1792697066" alt="book ETH-USDC-spot heatmap" loading="lazy"><figcaption>book ETH-USDC-spot heatmap</figcaption></figure><figure><img src="img/lt_book_ETH_heatmap.png?t=1792697065" alt="book ETH heatmap" loading="lazy"><figcaption>book ETH heatmap</figcaption></figure><figure><img src="img/lt_btc_liq_map.png?t=1792697062" alt="btc liq map" loading="lazy"><figcaption>btc liq map</figcaption></figure><figure><img src="img/lt_eth_liq_map.png?t=1792697062" alt="eth liq map" loading="lazy"><figcaption>eth liq map</figcaption></figure><details><summary>Lighter report numbers</summary><pre>{
+ &quot;generated_art&quot;: &quot;2026-10-22 16:24 ART&quot;,
+ &quot;ETH&quot;: {
+  &quot;chart&quot;: &quot;charts/eth_liq_map.png&quot;,
+  &quot;mark&quot;: 2388.23,
+  &quot;oi_base&quot;: 36172.1532,
+  &quot;oi_usd&quot;: 86387421,
+  &quot;positions&quot;: 1312,
+  &quot;tracked_long_base&quot;: 20899.0635,
+  &quot;tracked_short_base&quot;: 24056.7249,
+  &quot;coverage_pct_long&quot;: 57.78,
+  &quot;coverage_pct_short&quot;: 66.51,
+  &quot;usd_without_liq_price&quot;: 12071092,
+  &quot;top_long_liq_clusters&quot;: [
+   {
+    &quot;price&quot;: 2190,
+    &quot;usd&quot;: 11851716,
+    &quot;side&quot;: &quot;long&quot;,
+    &quot;dist_pct&quot;: -8.3
+   },
+   {
+    &quot;price&quot;: 1100,
+    &quot;usd&quot;: 5178499,
+    &quot;side&quot;: &quot;long&quot;,
+    &quot;dist_pct&quot;: -53.94
+   },
+   {
+    &quot;price&quot;: 2180,
+    &quot;usd&quot;: 4780085,
+    &quot;side&quot;: &quot;long&quot;,
+    &quot;dist_pct&quot;: -8.72
+   },
+   {
+    &quot;price&quot;: 1850,
+    &quot;usd&quot;: 3599063,
+    &quot;side&quot;: &quot;long&quot;,
+    &quot;dist_pct&quot;: -22.54
+   },
+   {
+    &quot;price&quot;: 2280,
+    &quot;usd&quot;: 3563611,
+    &quot;side&quot;: &quot;long&quot;,
+    &quot;dist_pct&quot;: -4.53
+   }
+  ],
+  &quot;top_short_liq_clusters&quot;: [
+   {
+    &quot;price&quot;: 3410,
+    &quot;usd&quot;: 15904418,
+    &quot;side&quot;: &quot;short&quot;,
+    &quot;dist_pct&quot;: 42.78
+   },
+   {
+    &quot;price&quot;: 3530,
+    &quot;usd&quot;: 9202130,
+    &quot;side&quot;: &quot;short&quot;,
+    &quot;dist_pct&quot;: 47.81
+   },
+   {
+    &quot;price&quot;: 2920,
+    &quot;usd&quot;: 6850796,
+    &quot;side&quot;: &quot;short&quot;,
+    &quot;dist_pct&quot;: 22.27
+   },
+   {
+    &quot;price&quot;: 2820,
+    &quot;usd&quot;: 4226580,
+    &quot;side&quot;: &quot;short&quot;,
+    &quot;dist_pct&quot;: 18.08
+   },
+   {
+    &quot;price&quot;: 5750,
+    &quot;usd&quot;: 2525758,
+    &quot;side&quot;: &quot;short&quot;,
+    &quot;dist_pct&quot;: 140.76
+   }
+  ],
+  &quot;cum_long_liq_within_5pct&quot;: 5434398,
+  &quot;cum_short_liq_within_5pct&quot;: 999122
+ },
+ &quot;BTC&quot;: {
+  &quot;chart&quot;: &quot;charts/btc_liq_map.png&quot;,
+  &quot;mark&quot;: 81426.2,
+  &quot;oi_base&quot;: 2183.07954,
+  &quot;oi_usd&quot;: 177759871,
+  &quot;positions&quot;: 2470,
+  &quot;tracked_long_base&quot;: 1039.48507,
+  &quot;tracked_short_base&quot;: 1270.224,
+  &quot;coverage_pct_long&quot;: 47.62,
+  &quot;coverage_pct_short&quot;: 58.18,
+  &quot;usd_without_liq_price&quot;: 9912797,
+  &quot;top_long_liq_clusters&quot;: [
+   {
+    &quot;price&quot;: 75500,
+    &quot;usd&quot;: 10740270,
+    &quot;side&quot;: &quot;long&quot;,
+    &quot;dist_pct&quot;: -7.28
+   },
+   {
+    &quot;price&quot;: 31750,
+    &quot;usd&quot;: 9003726,
+    &quot;side&quot;: &quot;long&quot;,
+    &quot;dist_pct&quot;: -61.01
+   },
+   {
+    &quot;price&quot;: 80500,
+    &quot;usd&quot;: 7168874,
+    &quot;side&quot;: &quot;long&quot;,
+    &quot;dist_pct&quot;: -1.14
+   },
+   {
+    &quot;price&quot;: 74250,
+    &quot;usd&quot;: 6059778,
+    &quot;side&quot;: &quot;long&quot;,
+    &quot;dist_pct&quot;: -8.81
+   },
+   {
+    &quot;price&quot;: 68000,
+    &quot;usd&quot;: 5128371,
+    &quot;side&quot;: &quot;long&quot;,
+    &quot;dist_pct&quot;: -16.49
+   }
+  ],
+  &quot;top_short_liq_clusters&quot;: [
+   {
+    &quot;price&quot;: 168250,
+    &quot;usd&quot;: 16426085,
+    &quot;side&quot;: &quot;short&quot;,
+    &quot;dist_pct&quot;: 106.63
+   },
+   {
+    &quot;price&quot;: 187750,
+    &quot;usd&quot;: 13171625,
+    &quot;side&quot;: &quot;short&quot;,
+    &quot;dist_pct&quot;: 130.58
+   },
+   {
+    &quot;price&quot;: 117500,
+    &quot;usd&quot;: 9977527,
+    &quot;side&quot;: &quot;short&quot;,
+    &quot;dist_pct&quot;: 44.3
+   },
+   {
+    &quot;price&quot;: 84500,
+    &quot;usd&quot;: 8784395,
+    &quot;side&quot;: &quot;short&quot;,
+    &quot;dist_pct&quot;: 3.77
+   },
+   {
+    &quot;price&quot;: 121750,
+    &quot;usd&quot;: 5883346,
+    &quot;side&quot;: &quot;short&quot;,
+    &quot;dist_pct&quot;: 49.52
+   }
+  ],
+  &quot;cum_long_liq_within_5pct&quot;: 20150223,
+  &quot;cum_short_liq_within_5pct&quot;: 11634416
+ },
+ &quot;book_BTC&quot;: {
+  &quot;chart&quot;: &quot;charts/book_BTC_heatmap.png&quot;,
+  &quot;snapshots&quot;: 1492,
+  &quot;mid&quot;: 81440.65,
+  &quot;visible_range&quot;: [
+   81323.2,
+   81569.9
+  ],
+  &quot;visible_range_pct&quot;: [
+   -0.144,
+   0.159
+  ],
+  &quot;top_bid_walls&quot;: [
+   {
+    &quot;price&quot;: 81351.8,
+    &quot;usd&quot;: 1031190,
+    &quot;dist_pct&quot;: -0.109
+   },
+   {
+    &quot;price&quot;: 81366.7,
+    &quot;usd&quot;: 1020103,
+    &quot;dist_pct&quot;: -0.091
+   },
+   {
+    &quot;price&quot;: 81340.0,
+    &quot;usd&quot;: 500000,
+    &quot;dist_pct&quot;: -0.124
+   },
+   {
+    &quot;price&quot;: 81323.4,
+    &quot;usd&quot;: 484836,
+    &quot;dist_pct&quot;: -0.144
+   },
+   {
+    &quot;price&quot;: 81417.4,
+    &quot;usd&quot;: 425054,
+    &quot;dist_pct&quot;: -0.029
+   }
+  ],
+  &quot;top_ask_walls&quot;: [
+   {
+    &quot;price&quot;: 81487.7,
+    &quot;usd&quot;: 1032913,
+    &quot;dist_pct&quot;: 0.058
+   },
+   {
+    &quot;price&quot;: 81489.0,
+    &quot;usd&quot;: 1021582,
+    &quot;dist_pct&quot;: 0.059
+   },
+   {
+    &quot;price&quot;: 81560.7,
+    &quot;usd&quot;: 652460,
+    &quot;dist_pct&quot;: 0.147
+   },
+   {
+    &quot;price&quot;: 81447.0,
+    &quot;usd&quot;: 522408,
+    &quot;dist_pct&quot;: 0.008
+   },
+   {
+    &quot;price&quot;: 81506.0,
+    &quot;usd&quot;: 500000,
+    &quot;dist_pct&quot;: 0.08
+   }
+  ],
+  &quot;pulled_walls_last24h&quot;: 5386,
+  &quot;pulled_recent&quot;: [
+   {
+    &quot;side&quot;: &quot;bid&quot;,
+    &quot;price&quot;: 81358.7,
+    &quot;usd&quot;: 569286,
+    &quot;first_seen_art&quot;: &quot;16:19:03&quot;,
+    &quot;pulled_art&quot;: &quot;16:23:33&quot;,
+    &quot;dist_pct_at_pull&quot;: -0.078
+   },
+   {
+    &quot;side&quot;: &quot;bid&quot;,
+    &quot;price&quot;: 81365.2,
+    &quot;usd&quot;: 263177,
+    &quot;first_seen_art&quot;: &quot;16:19:03&quot;,
+    &quot;pulled_art&quot;: &quot;16:23:33&quot;,
+    &quot;dist_pct_at_pull&quot;: -0.07
+   },
+   {
+    &quot;side&quot;: &quot;bid&quot;,
+    &quot;price&quot;: 81370.1,
+    &quot;usd&quot;: 267936,
+    &quot;first_seen_art&quot;: &quot;16:19:03&quot;,
+    &quot;pulled_art&quot;: &quot;16:23:33&quot;,
+    &quot;dist_pct_at_pull&quot;: -0.064
+   },
+   {
+    &quot;side&quot;: &quot;bid&quot;,
+    &quot;price&quot;: 81375.0,
+    &quot;usd&quot;: 263209,
+    &quot;first_seen_art&quot;: &quot;16:19:03&quot;,
+    &quot;pulled_art&quot;: &quot;16:23:33&quot;,
+    &quot;dist_pct_at_pull&quot;: -0.058
+   },
+   {
+    &quot;side&quot;: &quot;bid&quot;,
+    &quot;price&quot;: 81380.4,
+    &quot;usd&quot;: 340133,
+    &quot;first_seen_art&quot;: &quot;16:20:03&quot;,
+    &quot;pulled_art&quot;: &quot;16:23:33&quot;,
+    &quot;dist_pct_at_pull&quot;: -0.052
+   },
+   {
+    &quot;side&quot;: &quot;bid&quot;,
+    &quot;price&quot;: 81385.3,
+    &quot;usd&quot;: 359936,
+    &quot;first_seen_art&quot;: &quot;16:20:33&quot;,
+    &quot;pulled_art&quot;: &quot;16:23:33&quot;,
+    &quot;dist_pct_at_pull&quot;: -0.046
+   },
+   {
+    &quot;side&quot;: &quot;bid&quot;,
+    &quot;price&quot;: 81391.4,
+    &quot;usd&quot;: 297009,
+    &quot;first_seen_art&quot;: &quot;16:20:33&quot;,
+    &quot;pulled_art&quot;: &quot;16:23:33&quot;,
+    &quot;dist_pct_at_pull&quot;: -0.038
+   },
+   {
+    &quot;side&quot;: &quot;ask&quot;,
+    &quot;price&quot;: 81549.5,
+    &quot;usd&quot;: 280436,
+    &quot;first_seen_art&quot;: &quot;16:20:33&quot;,
+    &quot;pulled_art&quot;: &quot;16:23:33&quot;,
+    &quot;dist_pct_at_pull&quot;: 0.156
+   },
+   {
+    &quot;side&quot;: &quot;ask&quot;,
+    &quot;price&quot;: 81555.7,
+    &quot;usd&quot;: 280458,
+    &quot;first_seen_art&quot;: &quot;16:20:33&quot;,
+    &quot;pulled_art&quot;: &quot;16:23:33&quot;,
+    &quot;dist_pct_at_pull&quot;: 0.164
+   },
+   {
+    &quot;side&quot;: &quot;ask&quot;,
+    &quot;price&quot;: 81560.6,
+    &quot;usd&quot;: 267116,
+    &quot;first_seen_art&quot;: &quot;16:20:33&quot;,
+    &quot;pulled_art&quot;: &quot;16:23:33&quot;,
+    &quot;dist_pct_at_pull&quot;: 0.17
+   }
+  ]
+ },
+ &quot;book_ETH&quot;: {
+  &quot;chart&quot;: &quot;charts/book_ETH_heatmap.png&quot;,
+  &quot;snapshots&quot;: 1492,
+  &quot;mid&quot;: 2389.38,
+  &quot;visible_range&quot;: [
+   2379.88,
+   2403.75
+  ],
+  &quot;visible_range_pct&quot;: [
+   -0.398,
+   0.601
+  ],
+  &quot;top_bid_walls&quot;: [
+   {
+    &quot;price&quot;: 2387.4,
+    &quot;usd&quot;: 760067,
+    &quot;dist_pct&quot;: -0.083
+   },
+   {
+    &quot;price&quot;: 2379.94,
+    &quot;usd&quot;: 508496,
+    &quot;dist_pct&quot;: -0.395
+   },
+   {
+    &quot;price&quot;: 2389.08,
+    &quot;usd&quot;: 496850,
+    &quot;dist_pct&quot;: -0.013
+   },
+   {
+    &quot;price&quot;: 2380.05,
+    </pre></details></section></div><div class=tab id=t_stream style="display:none"><section><h2>Wallet tracker (Hyperliquid + Lighter, live)</h2><p class=meta id=wf_status>loading...</p>
+<div class=ctl><select id=wf_w></select><input id=wf_c placeholder="Coin" size=6><span>Min $</span><input id=wf_min type=number value=0 style="width:90px"><span>Highlight ≥ $</span><input id=wf_big type=number value=250000 style="width:100px"></div>
+<div id=wl_list class=meta style="margin:8px 0"></div>
+<details><summary>Add wallet (saved in this browser only)</summary><div class=ctl><select id=wf_ven><option>HL</option><option>Lighter</option></select><input id=wf_addr placeholder="0x… or Lighter account index"><input id=wf_lbl placeholder="Label" size=8><button id=wf_add>Add</button></div></details>
+<h3>Current positions</h3><div id=wf_pos class=cards></div><h3>Fills (newest first)</h3><div class=tw><table id=wf_feed class=small></table></div></section></div>
+<div class=tab id=t_whales style="display:none"><section><h2>Whale positions board</h2><div class=ctl><select id=wh_c><option>BTC</option><option>ETH</option></select><select id=wh_v><option>HL</option><option>Lighter</option></select></div>
+<p class=meta id=wh_meta>loading...</p><div id=wh_sum></div><div class=tw><table id=wh_t class=small></table></div><p class=meta>From the box collectors' latest snapshot of each account ("Seen" = when that account was last polled). uPnL is estimated at the mark. Lighter leverage isn't stored by the collector.</p></section></div><script src="live.js?v=1"></script><script src="wallets.js?v=1"></script></body></html>

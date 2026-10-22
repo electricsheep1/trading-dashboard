@@ -1,0 +1,585 @@
+{
+ "generated_art": "2026-10-22 16:39 ART",
+ "ETH": {
+  "chart": "charts/eth_liq_map.png",
+  "mark": 2386.43,
+  "oi_base": 38301.2115,
+  "oi_usd": 91403160,
+  "positions": 1317,
+  "tracked_long_base": 20988.5516,
+  "tracked_short_base": 24040.9127,
+  "coverage_pct_long": 54.8,
+  "coverage_pct_short": 62.77,
+  "usd_without_liq_price": 11349588,
+  "top_long_liq_clusters": [
+   {
+    "price": 2190,
+    "usd": 11842784,
+    "side": "long",
+    "dist_pct": -8.23
+   },
+   {
+    "price": 1100,
+    "usd": 5174189,
+    "side": "long",
+    "dist_pct": -53.91
+   },
+   {
+    "price": 2180,
+    "usd": 4776482,
+    "side": "long",
+    "dist_pct": -8.65
+   },
+   {
+    "price": 1830,
+    "usd": 3579645,
+    "side": "long",
+    "dist_pct": -23.32
+   },
+   {
+    "price": 2280,
+    "usd": 3566104,
+    "side": "long",
+    "dist_pct": -4.46
+   }
+  ],
+  "top_short_liq_clusters": [
+   {
+    "price": 3410,
+    "usd": 15892431,
+    "side": "short",
+    "dist_pct": 42.89
+   },
+   {
+    "price": 3530,
+    "usd": 9195195,
+    "side": "short",
+    "dist_pct": 47.92
+   },
+   {
+    "price": 2920,
+    "usd": 6845632,
+    "side": "short",
+    "dist_pct": 22.36
+   },
+   {
+    "price": 2820,
+    "usd": 4223400,
+    "side": "short",
+    "dist_pct": 18.17
+   },
+   {
+    "price": 5750,
+    "usd": 2523525,
+    "side": "short",
+    "dist_pct": 140.95
+   }
+  ],
+  "cum_long_liq_within_5pct": 5429615,
+  "cum_short_liq_within_5pct": 1227111
+ },
+ "BTC": {
+  "chart": "charts/btc_liq_map.png",
+  "mark": 81393.8,
+  "oi_base": 2195.40128,
+  "oi_usd": 178692053,
+  "positions": 2490,
+  "tracked_long_base": 1033.69545,
+  "tracked_short_base": 1271.5530899999999,
+  "coverage_pct_long": 47.08,
+  "coverage_pct_short": 57.92,
+  "usd_without_liq_price": 9936768,
+  "top_long_liq_clusters": [
+   {
+    "price": 75500,
+    "usd": 10745748,
+    "side": "long",
+    "dist_pct": -7.24
+   },
+   {
+    "price": 31750,
+    "usd": 9000143,
+    "side": "long",
+    "dist_pct": -60.99
+   },
+   {
+    "price": 80500,
+    "usd": 7166110,
+    "side": "long",
+    "dist_pct": -1.1
+   },
+   {
+    "price": 74250,
+    "usd": 6057392,
+    "side": "long",
+    "dist_pct": -8.78
+   },
+   {
+    "price": 68750,
+    "usd": 5009982,
+    "side": "long",
+    "dist_pct": -15.53
+   }
+  ],
+  "top_short_liq_clusters": [
+   {
+    "price": 168250,
+    "usd": 16419548,
+    "side": "short",
+    "dist_pct": 106.71
+   },
+   {
+    "price": 187750,
+    "usd": 13166384,
+    "side": "short",
+    "dist_pct": 130.67
+   },
+   {
+    "price": 117500,
+    "usd": 9973557,
+    "side": "short",
+    "dist_pct": 44.36
+   },
+   {
+    "price": 84500,
+    "usd": 8780900,
+    "side": "short",
+    "dist_pct": 3.82
+   },
+   {
+    "price": 121750,
+    "usd": 5881005,
+    "side": "short",
+    "dist_pct": 49.58
+   }
+  ],
+  "cum_long_liq_within_5pct": 19163855,
+  "cum_short_liq_within_5pct": 11878843
+ },
+ "book_BTC": {
+  "chart": "charts/book_BTC_heatmap.png",
+  "snapshots": 1516,
+  "mid": 81402.7,
+  "visible_range": [
+   81284.1,
+   81521.9
+  ],
+  "visible_range_pct": [
+   -0.146,
+   0.146
+  ],
+  "top_bid_walls": [
+   {
+    "price": 81343.7,
+    "usd": 1032070,
+    "dist_pct": -0.072
+   },
+   {
+    "price": 81334.0,
+    "usd": 1019474,
+    "dist_pct": -0.084
+   },
+   {
+    "price": 81323.4,
+    "usd": 503177,
+    "dist_pct": -0.097
+   },
+   {
+    "price": 81290.2,
+    "usd": 500001,
+    "dist_pct": -0.138
+   },
+   {
+    "price": 81340.0,
+    "usd": 500000,
+    "dist_pct": -0.077
+   }
+  ],
+  "top_ask_walls": [
+   {
+    "price": 81462.7,
+    "usd": 1033653,
+    "dist_pct": 0.074
+   },
+   {
+    "price": 81469.8,
+    "usd": 1021213,
+    "dist_pct": 0.082
+   },
+   {
+    "price": 81489.4,
+    "usd": 500000,
+    "dist_pct": 0.107
+   },
+   {
+    "price": 81472.8,
+    "usd": 500000,
+    "dist_pct": 0.086
+   },
+   {
+    "price": 81506.0,
+    "usd": 500000,
+    "dist_pct": 0.127
+   }
+  ],
+  "pulled_walls_last24h": 5478,
+  "pulled_recent": [
+   {
+    "side": "bid",
+    "price": 81395.0,
+    "usd": 110215,
+    "first_seen_art": "16:37:03",
+    "pulled_art": "16:39:03",
+    "dist_pct_at_pull": -0.009
+   },
+   {
+    "side": "ask",
+    "price": 81438.9,
+    "usd": 264998,
+    "first_seen_art": "16:37:03",
+    "pulled_art": "16:39:03",
+    "dist_pct_at_pull": 0.044
+   },
+   {
+    "side": "ask",
+    "price": 81444.5,
+    "usd": 265016,
+    "first_seen_art": "16:37:03",
+    "pulled_art": "16:39:03",
+    "dist_pct_at_pull": 0.051
+   },
+   {
+    "side": "ask",
+    "price": 81445.3,
+    "usd": 199338,
+    "first_seen_art": "16:37:03",
+    "pulled_art": "16:39:03",
+    "dist_pct_at_pull": 0.052
+   },
+   {
+    "side": "ask",
+    "price": 81445.7,
+    "usd": 199339,
+    "first_seen_art": "16:37:03",
+    "pulled_art": "16:39:03",
+    "dist_pct_at_pull": 0.053
+   },
+   {
+    "side": "ask",
+    "price": 81451.3,
+    "usd": 60017,
+    "first_seen_art": "16:37:03",
+    "pulled_art": "16:39:03",
+    "dist_pct_at_pull": 0.06
+   },
+   {
+    "side": "ask",
+    "price": 81480.1,
+    "usd": 57289,
+    "first_seen_art": "16:37:03",
+    "pulled_art": "16:39:03",
+    "dist_pct_at_pull": 0.095
+   },
+   {
+    "side": "ask",
+    "price": 81481.3,
+    "usd": 147470,
+    "first_seen_art": "16:37:03",
+    "pulled_art": "16:39:03",
+    "dist_pct_at_pull": 0.097
+   },
+   {
+    "side": "ask",
+    "price": 81487.2,
+    "usd": 1032736,
+    "first_seen_art": "16:37:03",
+    "pulled_art": "16:39:03",
+    "dist_pct_at_pull": 0.104
+   },
+   {
+    "side": "ask",
+    "price": 81518.4,
+    "usd": 88887,
+    "first_seen_art": "16:37:03",
+    "pulled_art": "16:39:03",
+    "dist_pct_at_pull": 0.142
+   }
+  ]
+ },
+ "book_ETH": {
+  "chart": "charts/book_ETH_heatmap.png",
+  "snapshots": 1516,
+  "mid": 2386.45,
+  "visible_range": [
+   2370.91,
+   2396.15
+  ],
+  "visible_range_pct": [
+   -0.651,
+   0.406
+  ],
+  "top_bid_walls": [
+   {
+    "price": 2375.96,
+    "usd": 3199573,
+    "dist_pct": -0.44
+   },
+   {
+    "price": 2379.3,
+    "usd": 1603719,
+    "dist_pct": -0.3
+   },
+   {
+    "price": 2375.55,
+    "usd": 926199,
+    "dist_pct": -0.457
+   },
+   {
+    "price": 2385.14,
+    "usd": 853111,
+    "dist_pct": -0.055
+   },
+   {
+    "price": 2384.04,
+    "usd": 759126,
+    "dist_pct": -0.101
+   }
+  ],
+  "top_ask_walls": [
+   {
+    "price": 2395.73,
+    "usd": 1613171,
+    "dist_pct": 0.389
+   },
+   {
+    "price": 2390.1,
+    "usd": 760965,
+    "dist_pct": 0.153
+   },
+   {
+    "price": 2386.73,
+    "usd": 548248,
+    "dist_pct": 0.012
+   },
+   {
+    "price": 2394.71,
+    "usd": 522111,
+    "dist_pct": 0.346
+   },
+   {
+    "price": 2392.35,
+    "usd": 467311,
+    "dist_pct": 0.247
+   }
+  ],
+  "pulled_walls_last24h": 5358,
+  "pulled_recent": [
+   {
+    "side": "bid",
+    "price": 2386.91,
+    "usd": 378072,
+    "first_seen_art": "16:36:34",
+    "pulled_art": "16:38:34",
+    "dist_pct_at_pull": -0.025
+   },
+   {
+    "side": "ask",
+    "price": 2389.44,
+    "usd": 406127,
+    "first_seen_art": "16:35:04",
+    "pulled_art": "16:39:04",
+    "dist_pct_at_pull": 0.125
+   },
+   {
+    "side": "bid",
+    "price": 2385.85,
+    "usd": 127453,
+    "first_seen_art": "16:36:34",
+    "pulled_art": "16:39:04",
+    "dist_pct_at_pull": -0.025
+   },
+   {
+    "side": "ask",
+    "price": 2391.54,
+    "usd": 406983,
+    "first_seen_art": "16:36:34",
+    "pulled_art": "16:39:04",
+    "dist_pct_at_pull": 0.213
+   },
+   {
+    "side": "bid",
+    "price": 2380.83,
+    "usd": 178147,
+    "first_seen_art": "16:37:04",
+    "pulled_art": "16:39:04",
+    "dist_pct_at_pull": -0.235
+   },
+   {
+    "side": "bid",
+    "price": 2384.16,
+    "usd": 99363,
+    "first_seen_art": "16:37:04",
+    "pulled_art": "16:39:04",
+    "dist_pct_at_pull": -0.096
+   },
+   {
+    "side": "bid",
+    "price": 2385.49,
+    "usd": 373098,
+    "first_seen_art": "16:37:04",
+    "pulled_art": "16:39:04",
+    "dist_pct_at_pull": -0.04
+   },
+   {
+    "side": "bid",
+    "price": 2386.31,
+    "usd": 373226,
+    "first_seen_art": "16:37:04",
+    "pulled_art": "16:39:04",
+    "dist_pct_at_pull": -0.006
+   },
+   {
+    "side": "ask",
+    "price": 2390.85,
+    "usd": 352100,
+    "first_seen_art": "16:37:04",
+    "pulled_art": "16:39:04",
+    "dist_pct_at_pull": 0.184
+   },
+   {
+    "side": "ask",
+    "price": 2392.56,
+    "usd": 120758,
+    "first_seen_art": "16:37:04",
+    "pulled_art": "16:39:04",
+    "dist_pct_at_pull": 0.256
+   }
+  ]
+ },
+ "book_ETH-USDC-spot": {
+  "chart": "charts/book_ETH-USDC-spot_heatmap.png",
+  "snapshots": 1516,
+  "mid": 2384.81,
+  "visible_range": [
+   0.01,
+   203744.58
+  ],
+  "visible_range_pct": [
+   -100.0,
+   8443.43
+  ],
+  "top_bid_walls": [
+   {
+    "price": 2372.67,
+    "usd": 20000,
+    "dist_pct": -0.509
+   },
+   {
+    "price": 2364.06,
+    "usd": 20000,
+    "dist_pct": -0.87
+   },
+   {
+    "price": 2362.83,
+    "usd": 20000,
+    "dist_pct": -0.922
+   },
+   {
+    "price": 2378.82,
+    "usd": 20000,
+    "dist_pct": -0.251
+   },
+   {
+    "price": 2376.36,
+    "usd": 20000,
+    "dist_pct": -0.354
+   }
+  ],
+  "top_ask_walls": [
+   {
+    "price": 2386.08,
+    "usd": 6000,
+    "dist_pct": 0.053
+   },
+   {
+    "price": 2385.79,
+    "usd": 4500,
+    "dist_pct": 0.041
+   },
+   {
+    "price": 2385.49,
+    "usd": 3000,
+    "dist_pct": 0.029
+   },
+   {
+    "price": 2399.73,
+    "usd": 2858,
+    "dist_pct": 0.626
+   },
+   {
+    "price": 2412.03,
+    "usd": 2858,
+    "dist_pct": 1.141
+   }
+  ],
+  "pulled_walls_last24h": 7,
+  "pulled_recent": [
+   {
+    "side": "ask",
+    "price": 49500.0,
+    "usd": 94050,
+    "first_seen_art": "16:39:46",
+    "pulled_art": "07:55:43",
+    "dist_pct_at_pull": 1120.053
+   },
+   {
+    "side": "ask",
+    "price": 3580000.0,
+    "usd": 358000,
+    "first_seen_art": "16:39:46",
+    "pulled_art": "07:55:43",
+    "dist_pct_at_pull": 88138.194
+   },
+   {
+    "side": "ask",
+    "price": 195000.0,
+    "usd": 54698,
+    "first_seen_art": "07:57:45",
+    "pulled_art": "08:04:28",
+    "dist_pct_at_pull": 8012.358
+   },
+   {
+    "side": "ask",
+    "price": 10000.0,
+    "usd": 400000,
+    "first_seen_art": "08:00:59",
+    "pulled_art": "08:06:28",
+    "dist_pct_at_pull": 316.088
+   },
+   {
+    "side": "ask",
+    "price": 31265.27,
+    "usd": 62531,
+    "first_seen_art": "08:01:31",
+    "pulled_art": "08:10:31",
+    "dist_pct_at_pull": 1200.084
+   },
+   {
+    "side": "ask",
+    "price": 100000.0,
+    "usd": 2000000,
+    "first_seen_art": "08:09:29",
+    "pulled_art": "08:12:59",
+    "dist_pct_at_pull": 4057.399
+   },
+   {
+    "side": "ask",
+    "price": 49999.0,
+    "usd": 62329,
+    "first_seen_art": "08:01:31",
+    "pulled_art": "10:14:27",
+    "dist_pct_at_pull": 1987.885
+   }
+  ]
+ }
+}
